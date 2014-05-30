@@ -7,5 +7,6 @@ public class sampleBlock extends Block {
 
 	public sampleBlock (Material material) {
 		super(material);
+		//test
 	}
 }
