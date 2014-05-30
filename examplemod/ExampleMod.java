@@ -1,9 +1,11 @@
-package com.example.examplemod;
+package example.examplemod;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -29,13 +31,25 @@ public class ExampleMod
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-    	Block sample = new sampleBlock(Material.dragonEgg)
-    		.setHardness(100F)
+    	/*Block sample = new sampleBlock(Material.dragonEgg)
+    		.setHardness(4000F)
+    		.setResistance(2000.0F)
     		.setStepSound(Block.soundTypeGravel)
     		.setBlockName("sampleBlock")
     		.setCreativeTab(CreativeTabs.tabBlock);
-    	
-    GameRegistry.registerBlock(sample, "sampleBlock");
+    		*/
+    	/*Block sampTNT = new sampleTNT();
+    		.setHardness(0.0F)
+    		.setStepSound(Block.soundTypeGrass)
+    	*/
+    	Block sample = new sampleTNT()
+    		.setHardness(0.0F)
+    		.setStepSound(Block.soundTypeGrass)
+    		.setBlockName("sampletnt")
+    		.setBlockTextureName("tnt");
+    //GameRegistry.registerBlock(sample, "sampleBlock");
+    GameRegistry.registerBlock(sample, "sampletnt");
+
     
     }
 }
