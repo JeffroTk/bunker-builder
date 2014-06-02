@@ -6,6 +6,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -70,7 +72,9 @@ public class ExampleMod
         GameRegistry.registerBlock(dynamiteBlock, "dynamite");
     	/********************************************************/
     	/********************************************************/
-
+        
+        //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
+        MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
     //GameRegistry.registerBlock(sample, "sampleBlock");
 
     
