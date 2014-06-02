@@ -42,13 +42,36 @@ public class ExampleMod
     		.setHardness(0.0F)
     		.setStepSound(Block.soundTypeGrass)
     	*/
-    	Block sample = new sampleTNT()
-    		.setHardness(0.0F)
-    		.setStepSound(Block.soundTypeGrass)
-    		.setBlockName("sampletnt")
-    		.setBlockTextureName("tnt");
+    	
+    	
+    	/********************************************************/
+    	/**********************EXPOLSIVES***********************/
+    	
+    	Block c4Block = new c4()
+	    	.setHardness(0.0F)
+			.setStepSound(Block.soundTypeGrass)
+			.setBlockName("c4")
+			.setBlockTextureName("tnt");
+    	
+    	Block semtexBlock = new semtex()
+	    	.setHardness(0.0F)
+			.setStepSound(Block.soundTypeGrass)
+			.setBlockName("semtex")
+			.setBlockTextureName("tnt");
+    	
+    	Block dynamiteBlock = new dynamite()
+	    	.setHardness(0.0F)
+			.setStepSound(Block.soundTypeGrass)
+			.setBlockName("dynamite")
+			.setBlockTextureName("tnt");
+    	
+        GameRegistry.registerBlock(c4Block, "c4");
+        GameRegistry.registerBlock(semtexBlock, "semtex");
+        GameRegistry.registerBlock(dynamiteBlock, "dynamite");
+    	/********************************************************/
+    	/********************************************************/
+
     //GameRegistry.registerBlock(sample, "sampleBlock");
-    GameRegistry.registerBlock(sample, "sampletnt");
 
     
     }
