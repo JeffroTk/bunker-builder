@@ -1,4 +1,4 @@
-package example.examplemod;
+package mod.bunkerbuilder;
 
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntitySpider;

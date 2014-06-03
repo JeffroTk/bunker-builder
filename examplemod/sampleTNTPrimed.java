@@ -1,4 +1,4 @@
-package example.examplemod;
+package mod.bunkerbuilder;
 
 
 import cpw.mods.fml.relauncher.Side;
