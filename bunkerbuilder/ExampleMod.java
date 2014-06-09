@@ -84,8 +84,9 @@ public class ExampleMod
         
         //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
+	MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
     //GameRegistry.registerBlock(sample, "sampleBlock");
-
+       
     
     }
 }
