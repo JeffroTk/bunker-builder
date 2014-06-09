@@ -1,6 +1,12 @@
 package mod.bunkerbuilder;
 
-
+/****************************************************************************************************************
+ * 
+ * Code borrowed from TNTPrimed default class
+ * Dynamite class calls on this when it is activated in game
+ * Is what makes the block explode
+ *
+ */
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;

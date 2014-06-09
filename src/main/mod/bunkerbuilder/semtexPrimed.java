@@ -8,6 +8,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+/****************************************************************************************************************
+ * 
+ * Code borrowed from TNTPrimed default class
+ * Semtex class calls on this when it is activated in game
+ * Is what makes the block explode
+ *
+ */
+
 public class semtexPrimed extends Entity
 {
     /** How long the fuse is */

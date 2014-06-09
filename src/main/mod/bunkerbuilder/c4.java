@@ -19,6 +19,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
+/****************************************************************************************************************
+ * 
+ * Code borrowed from TNT default class
+ * Creates a c4 block in game under the redstone tab
+ * Uses the TNT material and look, until we can design our own block look
+ * Calls on class c4Primed to explode in the game
+ *
+ */
 public class c4 extends Block
 {
     @SideOnly(Side.CLIENT)

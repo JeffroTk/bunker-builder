@@ -8,6 +8,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+/****************************************************************************************************************
+ * 
+ * Code borrowed from TNTPrimed default class
+ * c4 class calls on this when it is activated in game
+ * Is what makes the block explode
+ *
+ */
+
 public class c4Primed extends Entity
 {
     /** How long the fuse is */

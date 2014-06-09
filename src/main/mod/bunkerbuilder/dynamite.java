@@ -19,6 +19,16 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
+/****************************************************************************************************************
+ * 
+ * Code borrowed from TNT default class
+ * Creates a dynamite block in game under the redstone tab
+ * Uses the TNT material and look, until we can design our own block look
+ * Calls on class dynamitePrimed to explode in the game
+ *
+ */
+
+
 public class dynamite extends Block
 {
     @SideOnly(Side.CLIENT)
