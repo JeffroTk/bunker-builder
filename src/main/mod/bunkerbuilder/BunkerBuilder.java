@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -70,8 +71,20 @@ public class BunkerBuilder
         GameRegistry.registerBlock(c4Block, "c4");
         GameRegistry.registerBlock(semtexBlock, "semtex");
         GameRegistry.registerBlock(dynamiteBlock, "dynamite");
-    	/********************************************************/
-    	/********************************************************/
+        
+        /********************************************************/
+    	/**********************FORCE PROTECTION******************/
+        Block sandbag = new sandbag();
+        ItemStack sandbagstack = new ItemStack(new sandbag());
+        ItemStack sandstack = new ItemStack(Block.getBlockById(12));
+        ItemStack clothstack = new ItemStack(Block.getBlockById(35));
+    	
+	
+    GameRegistry.registerBlock(sandbag, "sandbag");
+    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
+    
+    /********************************************************/
+	/********************************************************/
         
         //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
