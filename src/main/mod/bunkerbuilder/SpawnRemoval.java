@@ -1,5 +1,10 @@
 package mod.bunkerbuilder;
 
+/*
+ * Author: Craig
+ * Prevents hostile/friendly mobs from spawning into games
+ */
+
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityZombie;
