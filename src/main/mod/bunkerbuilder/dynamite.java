@@ -29,7 +29,7 @@ import net.minecraft.world.World;
  */
 
 
-public class dynamite extends Block
+public class Dynamite extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon field_150116_a;
@@ -37,7 +37,7 @@ public class dynamite extends Block
     private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
-    public dynamite()
+    public Dynamite()
     {
         super(Material.tnt);
         this.setCreativeTab(CreativeTabs.tabRedstone);
@@ -94,7 +94,7 @@ public class dynamite extends Block
     {
         if (!p_149723_1_.isRemote)
         {
-            dynamitePrimed dynamitePrimed = new dynamitePrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
+            DynamitePrimed dynamitePrimed = new DynamitePrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
             dynamitePrimed.fuse = p_149723_1_.rand.nextInt(dynamitePrimed.fuse / 4) + dynamitePrimed.fuse / 8;
             p_149723_1_.spawnEntityInWorld(dynamitePrimed);
         }
@@ -114,7 +114,7 @@ public class dynamite extends Block
         {
             if ((p_150114_5_ & 1) == 1)
             {
-                dynamitePrimed dynamitePrimed = new dynamitePrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
+                DynamitePrimed dynamitePrimed = new DynamitePrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
                 p_150114_1_.spawnEntityInWorld(dynamitePrimed);
                 p_150114_1_.playSoundAtEntity(dynamitePrimed, "game.tnt.primed", 1.0F, 1.0F);
             }

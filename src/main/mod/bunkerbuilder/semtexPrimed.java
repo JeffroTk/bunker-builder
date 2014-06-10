@@ -16,14 +16,14 @@ import net.minecraft.world.World;
  *
  */
 
-public class semtexPrimed extends Entity
+public class SemtexPrimed extends Entity
 {
     /** How long the fuse is */
     public int fuse;
     private EntityLivingBase tntPlacedBy;
     private static final String __OBFID = "CL_00001681";
 
-    public semtexPrimed(World par1World)
+    public SemtexPrimed(World par1World)
     {
         super(par1World);
         this.preventEntitySpawning = true;
@@ -31,7 +31,7 @@ public class semtexPrimed extends Entity
         this.yOffset = this.height / 2.0F;
     }
 
-    public semtexPrimed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
+    public SemtexPrimed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
     {
         this(par1World);
         this.setPosition(par2, par4, par6);

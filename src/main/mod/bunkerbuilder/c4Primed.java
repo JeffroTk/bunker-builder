@@ -16,14 +16,14 @@ import net.minecraft.world.World;
  *
  */
 
-public class c4Primed extends Entity
+public class C4Primed extends Entity
 {
     /** How long the fuse is */
     public int fuse;
     private EntityLivingBase tntPlacedBy;
     private static final String __OBFID = "CL_00001681";
 
-    public c4Primed(World par1World)
+    public C4Primed(World par1World)
     {
         super(par1World);
         this.preventEntitySpawning = true;
@@ -31,7 +31,7 @@ public class c4Primed extends Entity
         this.yOffset = this.height / 2.0F;
     }
 
-    public c4Primed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
+    public C4Primed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
     {
         this(par1World);
         this.setPosition(par2, par4, par6);

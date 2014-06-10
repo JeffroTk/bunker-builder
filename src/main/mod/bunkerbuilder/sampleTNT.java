@@ -19,7 +19,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class sampleTNT extends Block
+public class SampleTNT extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon field_150116_a;
@@ -27,7 +27,7 @@ public class sampleTNT extends Block
     private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
-    public sampleTNT()
+    public SampleTNT()
     {
         super(Material.tnt);
         this.setCreativeTab(CreativeTabs.tabRedstone);
@@ -84,7 +84,7 @@ public class sampleTNT extends Block
     {
         if (!p_149723_1_.isRemote)
         {
-            sampleTNTPrimed sampleTNTPrimed = new sampleTNTPrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
+            SampleTNTPrimed sampleTNTPrimed = new SampleTNTPrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
             sampleTNTPrimed.fuse = p_149723_1_.rand.nextInt(sampleTNTPrimed.fuse / 4) + sampleTNTPrimed.fuse / 8;
             p_149723_1_.spawnEntityInWorld(sampleTNTPrimed);
         }
@@ -104,7 +104,7 @@ public class sampleTNT extends Block
         {
             if ((p_150114_5_ & 1) == 1)
             {
-                sampleTNTPrimed sampleTNTPrimed = new sampleTNTPrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
+                SampleTNTPrimed sampleTNTPrimed = new SampleTNTPrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
                 p_150114_1_.spawnEntityInWorld(sampleTNTPrimed);
                 p_150114_1_.playSoundAtEntity(sampleTNTPrimed, "game.tnt.primed", 1.0F, 1.0F);
             }

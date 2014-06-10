@@ -27,7 +27,7 @@ import net.minecraft.world.World;
  * Calls on class c4Primed to explode in the game
  *
  */
-public class c4 extends Block
+public class C4 extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon field_150116_a;
@@ -35,7 +35,7 @@ public class c4 extends Block
     private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
-    public c4()
+    public C4()
     {
         super(Material.tnt);
         this.setCreativeTab(CreativeTabs.tabRedstone);
@@ -92,7 +92,7 @@ public class c4 extends Block
     {
         if (!p_149723_1_.isRemote)
         {
-            c4Primed c4Primed = new c4Primed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
+            C4Primed c4Primed = new C4Primed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
             c4Primed.fuse = p_149723_1_.rand.nextInt(c4Primed.fuse / 4) + c4Primed.fuse / 8;
             p_149723_1_.spawnEntityInWorld(c4Primed);
         }
@@ -112,7 +112,7 @@ public class c4 extends Block
         {
             if ((p_150114_5_ & 1) == 1)
             {
-                c4Primed c4Primed = new c4Primed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
+                C4Primed c4Primed = new C4Primed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
                 p_150114_1_.spawnEntityInWorld(c4Primed);
                 p_150114_1_.playSoundAtEntity(c4Primed, "game.tnt.primed", 1.0F, 1.0F);
             }

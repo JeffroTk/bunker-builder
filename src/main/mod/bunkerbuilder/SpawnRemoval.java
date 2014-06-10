@@ -29,7 +29,7 @@ public class SpawnRemoval {
 		//if(event.entity instanceof EntitySkeleton || event.entity instanceof EntityZombie || event.entity instanceof EntitySpider) {
 	    //	event.setCanceled(true);
 	    //}
-		//System.out.println("denied spawn");
+		System.out.println("denied spawn");
 		event.setResult(Result.DENY);
 	}
 }

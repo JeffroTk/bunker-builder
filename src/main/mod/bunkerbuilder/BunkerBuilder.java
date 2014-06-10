@@ -81,7 +81,7 @@ public class BunkerBuilder
     	
 	
     GameRegistry.registerBlock(sandbag, "sandbag");
-    //GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
+    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
     
     /********************************************************/
 	/********************************************************/

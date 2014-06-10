@@ -28,7 +28,7 @@ import net.minecraft.world.World;
  *
  */
 
-public class semtex extends Block
+public class Semtex extends Block
 {
     @SideOnly(Side.CLIENT)
     private IIcon field_150116_a;
@@ -36,7 +36,7 @@ public class semtex extends Block
     private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
-    public semtex()
+    public Semtex()
     {
         super(Material.tnt);
         this.setCreativeTab(CreativeTabs.tabRedstone);
@@ -93,7 +93,7 @@ public class semtex extends Block
     {
         if (!p_149723_1_.isRemote)
         {
-            semtexPrimed semtexPrimed = new semtexPrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
+            SemtexPrimed semtexPrimed = new SemtexPrimed(p_149723_1_, (double)((float)p_149723_2_ + 0.5F), (double)((float)p_149723_3_ + 0.5F), (double)((float)p_149723_4_ + 0.5F), p_149723_5_.getExplosivePlacedBy());
             semtexPrimed.fuse = p_149723_1_.rand.nextInt(semtexPrimed.fuse / 4) + semtexPrimed.fuse / 8;
             p_149723_1_.spawnEntityInWorld(semtexPrimed);
         }
@@ -113,7 +113,7 @@ public class semtex extends Block
         {
             if ((p_150114_5_ & 1) == 1)
             {
-                semtexPrimed semtexPrimed = new semtexPrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
+                SemtexPrimed semtexPrimed = new SemtexPrimed(p_150114_1_, (double)((float)p_150114_2_ + 0.5F), (double)((float)p_150114_3_ + 0.5F), (double)((float)p_150114_4_ + 0.5F), p_150114_6_);
                 p_150114_1_.spawnEntityInWorld(semtexPrimed);
                 p_150114_1_.playSoundAtEntity(semtexPrimed, "game.tnt.primed", 1.0F, 1.0F);
             }

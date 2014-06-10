@@ -9,12 +9,12 @@ import net.minecraft.creativetab.CreativeTabs;
  * @author Pierre
  *
  */
-public class sandbag extends Block {
+public class Sandbag extends Block {
 
-	public sandbag () {
+	public Sandbag () {
 		 super(Material.sand);
 		 setHardness(1.5F);
-    	 setResistance(8.0F);
+    	 setResistance(6.0F);
 		 setStepSound(Block.soundTypeGravel);
 		 setBlockName("sandbag");
 		 setBlockTextureName("sand");

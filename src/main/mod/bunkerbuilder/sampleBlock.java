@@ -3,9 +3,9 @@ package mod.bunkerbuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class sampleBlock extends Block {
+public class SampleBlock extends Block {
 
-	public sampleBlock (Material material) {
+	public SampleBlock (Material material) {
 		super(material);
 		//test
 	}

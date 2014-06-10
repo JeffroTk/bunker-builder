@@ -8,14 +8,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class sampleTNTPrimed extends Entity
+public class SampleTNTPrimed extends Entity
 {
     /** How long the fuse is */
     public int fuse;
     private EntityLivingBase tntPlacedBy;
     private static final String __OBFID = "CL_00001681";
 
-    public sampleTNTPrimed(World par1World)
+    public SampleTNTPrimed(World par1World)
     {
         super(par1World);
         this.preventEntitySpawning = true;
@@ -23,7 +23,7 @@ public class sampleTNTPrimed extends Entity
         this.yOffset = this.height / 2.0F;
     }
 
-    public sampleTNTPrimed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
+    public SampleTNTPrimed(World par1World, double par2, double par4, double par6, EntityLivingBase par8EntityLivingBase)
     {
         this(par1World);
         this.setPosition(par2, par4, par6);
