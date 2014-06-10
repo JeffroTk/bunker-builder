@@ -50,19 +50,19 @@ public class BunkerBuilder
     	/********************************************************/
     	/**********************EXPOLSIVES***********************/
     	
-    	Block c4Block = new c4()
+    	Block c4Block = new C4()
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("c4")
 			.setBlockTextureName("tnt");
     	
-    	Block semtexBlock = new semtex()
+    	Block semtexBlock = new Semtex()
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("semtex")
 			.setBlockTextureName("tnt");
     	
-    	Block dynamiteBlock = new dynamite()
+    	Block dynamiteBlock = new Dynamite()
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("dynamite")
@@ -74,8 +74,8 @@ public class BunkerBuilder
         
         /********************************************************/
     	/**********************FORCE PROTECTION******************/
-        Block sandbag = new sandbag();
-        ItemStack sandbagstack = new ItemStack(new sandbag());
+        Block sandbag = new Sandbag();
+        ItemStack sandbagstack = new ItemStack(new Sandbag());
         ItemStack sandstack = new ItemStack(Block.getBlockById(12));
         ItemStack clothstack = new ItemStack(Block.getBlockById(35));
     	
