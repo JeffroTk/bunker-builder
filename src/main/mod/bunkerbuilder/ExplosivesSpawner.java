@@ -32,7 +32,11 @@ public class ExplosivesSpawner {
 				  World world = Minecraft.getMinecraft().theWorld; //get world reference
 				  /* Create a block of explosives, type will depend on level */
 				  
-				  world.setBlock(x,y,z, (Block)Block.blockRegistry.getObject("tnt"));
+				  System.out.println("Creating explosive");
+				  
+				  world.setBlock(x,y,z, (Block)Block.blockRegistry.getObject("c4"));
+				  //BlockTNT c4 = new BlockTNT();
+				  //world.setBlock(x,y,z, (Block)c4);
 				  /* Add code inside the onBlockAdded method to set this tnt to primed.*/
 			  }
 			}, 2*10*1000, 2*10*1000); // repeating timer for every 20 seconds, will be changed later when levels are added
