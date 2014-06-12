@@ -89,11 +89,11 @@ public class C4Primed extends Entity
         if (this.fuse-- <= 0)
         {
             this.setDead();
-
-            if (!this.worldObj.isRemote)
+            this.explode();
+            /*if (!this.worldObj.isRemote)
             {
                 this.explode();
-            }
+            }*/
         }
         else
         {

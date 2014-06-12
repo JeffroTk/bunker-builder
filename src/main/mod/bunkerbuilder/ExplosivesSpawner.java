@@ -8,6 +8,7 @@ package mod.bunkerbuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,6 +16,7 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 public class ExplosivesSpawner {
 	
@@ -25,6 +27,7 @@ public class ExplosivesSpawner {
 	
 	public ExplosivesSpawner()
 	{
+		
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			  @Override
@@ -33,9 +36,12 @@ public class ExplosivesSpawner {
 				  /* Create a block of explosives, type will depend on level */
 				  
 				  System.out.println("Creating explosive");
+				  C4Primed explosive = new C4Primed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);
+				  world.spawnEntityInWorld(explosive);
 				  
-				  world.setBlock(x,y,z, (Block)Block.blockRegistry.getObject("c4"));
-				  //BlockTNT c4 = new BlockTNT();
+				  //world.setBlock(x,y,z, (Block)Block.blockRegistry.getObject("tnt"));
+				  //BlockTNT temp = (BlockTNT) world.getBlock(x,y,z);
+				  //temp.func_150114_a(world, x, y, z, world.getBlockMetadata(x,y,z), (EntityLivingBase)null);
 				  //world.setBlock(x,y,z, (Block)c4);
 				  /* Add code inside the onBlockAdded method to set this tnt to primed.*/
 			  }
