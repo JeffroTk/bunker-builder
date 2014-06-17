@@ -17,7 +17,7 @@ public class Sandbag extends Block {
     	 setResistance(6.0F);
 		 setStepSound(Block.soundTypeGravel);
 		 setBlockName("sandbag");
-		 setBlockTextureName("sand");
+		 setBlockTextureName("wool_colored_green");
 		 setCreativeTab(CreativeTabs.tabBlock);
 		
 	}

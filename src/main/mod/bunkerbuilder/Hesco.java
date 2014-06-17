@@ -17,8 +17,9 @@ public class Hesco extends Block {
     	 setResistance(9.0F);
 		 setStepSound(Block.soundTypeGravel);
 		 setBlockName("hesco");
-		 setBlockTextureName("gravel");
+		 setBlockTextureName("stone");
 		 setCreativeTab(CreativeTabs.tabBlock);
+		
 		
 	}
 
