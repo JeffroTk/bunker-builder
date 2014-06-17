@@ -83,7 +83,11 @@ public class BunkerBuilder
         ItemStack hescobastion = new ItemStack(new Hesco());
         ItemStack steelgrid = new ItemStack(Block.getBlockById(15));
         ItemStack gravelstack = new ItemStack(Block.getBlockById(13));
-    	
+        
+        
+    Block texasbarrier = new TexasBarrier();
+	GameRegistry.registerBlock(texasbarrier, "TexasBarrier");
+	
 	
     GameRegistry.registerBlock(sandbag, "sandbag");
     GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);

@@ -16,14 +16,15 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.util.Random;
 
 public class ExplosivesSpawner {
 	
 	/* coordinates are for specific save file */
-	private int x = 1678;
+	Random rand = new Random();
+	private int x = rand.nextInt((1793 - 1663) + 1) + 1663;
 	private int y = 4;
-	private int z = 136;
+	private int z = rand.nextInt((151 - 121) + 1) + 121;
 	
 	public ExplosivesSpawner()
 	{
