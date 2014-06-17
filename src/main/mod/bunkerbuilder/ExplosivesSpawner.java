@@ -35,7 +35,7 @@ public class ExplosivesSpawner {
 				  World world = Minecraft.getMinecraft().theWorld; //get world reference
 				  /* Create a block of explosives, type will depend on level */
 				  
-				  System.out.println("Creating explosive");
+				  /* Spawns a primed explosive*/
 				  C4Primed explosive = new C4Primed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);
 				  world.spawnEntityInWorld(explosive);
 				  
