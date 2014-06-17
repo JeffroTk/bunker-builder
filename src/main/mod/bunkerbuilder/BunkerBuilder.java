@@ -73,7 +73,12 @@ public class BunkerBuilder
         GameRegistry.registerBlock(dynamiteBlock, "dynamite");
         
         /********************************************************/
+		/********************************************************/
+       
+        
+        /********************************************************/
     	/**********************FORCE PROTECTION******************/
+        
         Block sandbag = new Sandbag();
         ItemStack sandbagstack = new ItemStack(new Sandbag());
         ItemStack sandstack = new ItemStack(Block.getBlockById(12));
@@ -85,23 +90,22 @@ public class BunkerBuilder
         ItemStack gravelstack = new ItemStack(Block.getBlockById(13));
         
         
-    Block texasbarrier = new TexasBarrier();
-	GameRegistry.registerBlock(texasbarrier, "TexasBarrier");
-	
-	
-    GameRegistry.registerBlock(sandbag, "sandbag");
-    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
-    
-    GameRegistry.registerBlock(hesco, "hesco");
-    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
-    
-    /********************************************************/
-	/********************************************************/
+	    Block texasbarrier = new TexasBarrier();
+		GameRegistry.registerBlock(texasbarrier, "TexasBarrier");
+		
+		
+	    GameRegistry.registerBlock(sandbag, "sandbag");
+	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
+	    
+	    GameRegistry.registerBlock(hesco, "hesco");
+	    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
+	    
+	    /********************************************************/
+		/********************************************************/
         
         //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
-    //GameRegistry.registerBlock(sample, "sampleBlock");
 
     
     }
