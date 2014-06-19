@@ -19,7 +19,7 @@ public class SandBagItem extends ItemBlock
 	{
 		list.add("Cheap defensive structure");
 		list.add("");
-		list.add("Hardness: 1.0");
+		list.add("Resistance: 6.0");
 		list.add("Cost: 1");
 	}
 }
