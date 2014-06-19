@@ -31,10 +31,10 @@ import net.minecraft.world.World;
 
 public class Dynamite extends Block
 {
-    @SideOnly(Side.CLIENT)
-    private IIcon field_150116_a;
-    @SideOnly(Side.CLIENT)
-    private IIcon field_150115_b;
+    //@SideOnly(Side.CLIENT)
+    //private IIcon field_150116_a;
+    //@SideOnly(Side.CLIENT)
+    //private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
     public Dynamite()
@@ -49,9 +49,8 @@ public class Dynamite extends Block
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
     {
-        return p_149691_1_ == 0 ? this.field_150115_b : (p_149691_1_ == 1 ? this.field_150116_a : this.blockIcon);
-    }
-
+        return this.blockIcon;  //p_149691_1_ == 0 ? this.field_150115_b : (p_149691_1_ == 1 ? this.field_150116_a : this.blockIcon);
+    } 
     /**
      * Called whenever the block is added into the world. Args: world, x, y, z
      */
@@ -164,11 +163,11 @@ public class Dynamite extends Block
         return false;
     }
 
-    @SideOnly(Side.CLIENT)
+  /*  @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_)
     {
         this.blockIcon = p_149651_1_.registerIcon(this.getTextureName() + "_side");
         this.field_150116_a = p_149651_1_.registerIcon(this.getTextureName() + "_top");
         this.field_150115_b = p_149651_1_.registerIcon(this.getTextureName() + "_bottom");
-    }
+    } */
 }

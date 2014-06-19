@@ -66,7 +66,7 @@ public class BunkerBuilder
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("dynamite")
-			.setBlockTextureName("tnt");
+			.setBlockTextureName("dynamite");
     	
         GameRegistry.registerBlock(c4Block, "c4");
         GameRegistry.registerBlock(semtexBlock, "semtex");
