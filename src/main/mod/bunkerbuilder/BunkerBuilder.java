@@ -94,7 +94,8 @@ public class BunkerBuilder
 		GameRegistry.registerBlock(texasbarrier, "TexasBarrier");
 		
 		
-	    GameRegistry.registerBlock(sandbag, "sandbag");
+	    GameRegistry.registerBlock(sandbag, SandBagItem.class, "sandbag");
+		//GameRegistry.registerBlock(sandbag, "sandbag");
 	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
 	    
 	    GameRegistry.registerBlock(hesco, "hesco");

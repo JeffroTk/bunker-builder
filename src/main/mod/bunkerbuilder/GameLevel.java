@@ -16,7 +16,7 @@ public class GameLevel {
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
-		System.out.println("Moving player");
+		//System.out.println("Moving player");
 		Minecraft mc = Minecraft.getMinecraft();
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(vec.xCoord > xmax)

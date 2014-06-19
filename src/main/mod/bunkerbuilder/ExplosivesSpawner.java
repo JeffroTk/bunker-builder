@@ -8,6 +8,7 @@ package mod.bunkerbuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.init.Blocks;
@@ -25,6 +26,9 @@ public class ExplosivesSpawner {
 	private int x = rand.nextInt((1694 - 1667) + 1) + 1667;
 	private int y = 4;
 	private int z = rand.nextInt((148 - 117) + 1) + 117;
+	private static final int C4_EXPLOSIVE = 0;
+	private static final int SEMTEX_EXPLOSIVE = 1;
+	private static final int DYNAMITE_EXPLOSIVE = 2;
 	
 	public ExplosivesSpawner()
 	{
@@ -47,5 +51,22 @@ public class ExplosivesSpawner {
 				  /* Add code inside the onBlockAdded method to set this tnt to primed.*/
 			  }
 			}, 2*10*1000, 2*10*1000); // repeating timer for every 20 seconds, will be changed later when levels are added
+	}
+	
+	/*
+	 * Spawns explosive of some type at given coordinates
+	 */
+	public static void spawnExplosive(World world, int type, int x, int y, int z)
+	{
+		Entity explosive;
+		if(type == C4_EXPLOSIVE)
+			explosive = new C4Primed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);
+		else if(type == SEMTEX_EXPLOSIVE)
+			explosive = new SemtexPrimed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);	
+		else if(type == DYNAMITE_EXPLOSIVE)
+			explosive = new DynamitePrimed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);
+		else
+			explosive = new EntityTNTPrimed(world, x + 0.5F, y + 0.5F,z + 0.5F, (EntityLivingBase) null);
+		world.spawnEntityInWorld(explosive);
 	}
 }
