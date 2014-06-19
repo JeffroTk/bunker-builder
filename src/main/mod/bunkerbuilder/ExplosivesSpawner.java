@@ -22,9 +22,9 @@ public class ExplosivesSpawner {
 	
 	/* coordinates are for specific save file */
 	Random rand = new Random();
-	private int x = rand.nextInt((1793 - 1663) + 1) + 1663;
+	private int x = rand.nextInt((1694 - 1667) + 1) + 1667;
 	private int y = 4;
-	private int z = rand.nextInt((151 - 121) + 1) + 121;
+	private int z = rand.nextInt((148 - 117) + 1) + 117;
 	
 	public ExplosivesSpawner()
 	{
