@@ -1,13 +1,26 @@
 package mod.bunkerbuilder;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class GameLevel {
 	private int level;
-	private int zmax = 148, zmin = 117, xmax = 1694, xmin = 1667;
+	private int zmax, zmin, xmax, xmin; //restricting coordinates
+	private int gameTime;
+	
+	public GameLevel()
+	{
+		level = 1;
+		zmax = 148;
+		zmin = 117;
+		xmax = 1694;
+		xmin = 1667;
+	}
+	
 	
 	/*
 	 * Check the player coordinates every tick and restrict them to the current level
@@ -16,7 +29,9 @@ public class GameLevel {
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
-		//System.out.println("Moving player");
+		gameTime++;
+		if(gameTime % 20 == 0)
+			System.out.println(gameTime / 20);
 		Minecraft mc = Minecraft.getMinecraft();
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(vec.xCoord > xmax)
