@@ -10,7 +10,6 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 public class GameLevel {
 	private int level;
 	private int zmax, zmin, xmax, xmin; //restricting coordinates
-	private int gameTime;
 	
 	public GameLevel()
 	{
@@ -29,9 +28,6 @@ public class GameLevel {
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
-		gameTime++;
-		if(gameTime % 20 == 0)
-			System.out.println(gameTime / 20);
 		Minecraft mc = Minecraft.getMinecraft();
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(vec.xCoord > xmax)
