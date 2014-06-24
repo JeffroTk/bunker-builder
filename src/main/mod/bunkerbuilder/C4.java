@@ -29,16 +29,16 @@ import net.minecraft.world.World;
  */
 public class C4 extends Block
 {
-    @SideOnly(Side.CLIENT)
-    private IIcon field_150116_a;
-    @SideOnly(Side.CLIENT)
-    private IIcon field_150115_b;
+    //@SideOnly(Side.CLIENT)
+    //private IIcon field_150116_a;
+    //@SideOnly(Side.CLIENT)
+    //private IIcon field_150115_b;
     private static final String __OBFID = "CL_00000324";
 
     public C4()
     {
         super(Material.tnt);
-        this.setCreativeTab(CreativeTabs.tabRedstone);
+        //this.setCreativeTab(CreativeTabs.tabRedstone);
     }
 
     /**
@@ -47,7 +47,7 @@ public class C4 extends Block
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
     {
-        return p_149691_1_ == 0 ? this.field_150115_b : (p_149691_1_ == 1 ? this.field_150116_a : this.blockIcon);
+        return this.blockIcon; //p_149691_1_ == 0 ? this.field_150115_b : (p_149691_1_ == 1 ? this.field_150116_a : this.blockIcon);
     }
 
     /**
@@ -162,11 +162,11 @@ public class C4 extends Block
         return false;
     }
 
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_)
     {
         this.blockIcon = p_149651_1_.registerIcon(this.getTextureName() + "_side");
         this.field_150116_a = p_149651_1_.registerIcon(this.getTextureName() + "_top");
         this.field_150115_b = p_149651_1_.registerIcon(this.getTextureName() + "_bottom");
-    }
+    } */
 }

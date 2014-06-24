@@ -40,7 +40,7 @@ public class Dynamite extends Block
     public Dynamite()
     {
         super(Material.tnt);
-        this.setCreativeTab(CreativeTabs.tabRedstone);
+        //this.setCreativeTab(CreativeTabs.tabCustom);
     }
 
     /**

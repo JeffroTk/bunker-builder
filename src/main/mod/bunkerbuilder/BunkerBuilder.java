@@ -56,13 +56,13 @@ public class BunkerBuilder
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("c4")
-			.setBlockTextureName("tnt");
+			.setBlockTextureName("c4_side");
     	
     	Block semtexBlock = new Semtex()
 	    	.setHardness(0.0F)
 			.setStepSound(Block.soundTypeGrass)
 			.setBlockName("semtex")
-			.setBlockTextureName("tnt");
+			.setBlockTextureName("pumpkin_side");
     	
     	Block dynamiteBlock = new Dynamite()
 	    	.setHardness(0.0F)
@@ -114,6 +114,11 @@ public class BunkerBuilder
         //GameRegistry.registerBlock(sample, "sampleBlock");
         
         sandbag.setCreativeTab(this.tabCustom);
+        texasbarrier.setCreativeTab(this.tabCustom);
+        hesco.setCreativeTab(this.tabCustom);
+        c4Block.setCreativeTab(this.tabCustom);
+        dynamiteBlock.setCreativeTab(this.tabCustom);
+        semtexBlock.setCreativeTab(this.tabCustom);
 
     }
     
