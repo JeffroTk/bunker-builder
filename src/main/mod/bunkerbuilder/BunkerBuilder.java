@@ -70,9 +70,9 @@ public class BunkerBuilder
 			.setBlockName("dynamite")
 			.setBlockTextureName("dynamite");
     	
-        GameRegistry.registerBlock(c4Block, "c4");
-        GameRegistry.registerBlock(semtexBlock, "semtex");
-        GameRegistry.registerBlock(dynamiteBlock, "dynamite");
+        GameRegistry.registerBlock(c4Block, C4Item.class,  "c4");
+        GameRegistry.registerBlock(semtexBlock, SemtexItem.class, "semtex");
+        GameRegistry.registerBlock(dynamiteBlock, DynamiteItem.class, "dynamite");
         
         /********************************************************/
 		/********************************************************/
@@ -93,14 +93,14 @@ public class BunkerBuilder
         
         
 	    Block texasbarrier = new TexasBarrier();
-		GameRegistry.registerBlock(texasbarrier, "TexasBarrier");
+		GameRegistry.registerBlock(texasbarrier, TexasBarrierItem.class, "TexasBarrier");
 		
 		
 	    GameRegistry.registerBlock(sandbag, SandBagItem.class, "sandbag");
 		//GameRegistry.registerBlock(sandbag, "sandbag");
 	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
 	    
-	    GameRegistry.registerBlock(hesco, "hesco");
+	    GameRegistry.registerBlock(hesco, HescoItem.class, "hesco");
 	    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
 	    
 	    /********************************************************/
