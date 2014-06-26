@@ -31,15 +31,15 @@ public class Sandbag extends Block implements ITileEntityProvider{
 	
 	
 	
-//	@Override
-//	/**
-//     * Returns a new instance of a block's tile entity class. Called on placing the block.
-//     */
-//    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
-//    {
-//        TileMultiBlock multiblock = new TileMultiBlock();
-//        return multiblock;
-//    }
+	@Override
+	/**
+     * Returns a new instance of a block's tile entity class. Called on placing the block.
+     */
+    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
+    {
+        TileMultiBlock multiblock = new TileMultiBlock();
+        return multiblock;
+    }
 //	//This method checks if primary block exists. 
 //    @Override
 //    public void onNeighborBlockChange(World world, int i, int j, int k, Block par5){
