@@ -37,19 +37,7 @@ public class BunkerBuilder
     
     @EventHandler
     public void load(FMLInitializationEvent event)
-    {
-    	/*Block sample = new sampleBlock(Material.dragonEgg)
-    		.setHardness(4000F)
-    		.setResistance(2000.0F)
-    		.setStepSound(Block.soundTypeGravel)
-    		.setBlockName("sampleBlock")
-    		.setCreativeTab(CreativeTabs.tabBlock);
-    		*/
-    	/*Block sampTNT = new sampleTNT();
-    		.setHardness(0.0F)
-    		.setStepSound(Block.soundTypeGrass)
-    	*/
-    	
+    {    	
     	
     	/********************************************************/
     	/**********************EXPOLSIVES***********************/
@@ -117,7 +105,6 @@ public class BunkerBuilder
         MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
         FMLCommonHandler.instance().bus().register(new GameLevel());
 
-        //GameRegistry.registerBlock(sample, "sampleBlock");
         
         sandbag.setCreativeTab(this.tabCustom);
         texasbarrier.setCreativeTab(this.tabCustom);

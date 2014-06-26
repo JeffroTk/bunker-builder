@@ -13,7 +13,7 @@ import net.minecraft.init.Blocks;
 
 /**
  * They are cheap and can be crafted easily. They offer a decent blast resistance
- * @author Pierre
+ * 
  *
  */
 public class Sandbag extends BlockContainer implements ITileEntityProvider{

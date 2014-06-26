@@ -20,6 +20,6 @@ public class TexasBarrierItem extends ItemBlock
 		list.add("Very strong defense measure");
 		list.add("");
 		list.add("Resistence: 12.0");
-		list.add("Cost: 4");
+		list.add("Cost: 8");
 	}
 }

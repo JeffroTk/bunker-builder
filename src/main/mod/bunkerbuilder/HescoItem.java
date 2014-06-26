@@ -20,6 +20,6 @@ public class HescoItem extends ItemBlock
 		list.add("Moderately priced, reliable defense");
 		list.add("");
 		list.add("Resistance: 9.0");
-		list.add("Cost: 4(?)");
+		list.add("Cost: 6");
 	}
 }
