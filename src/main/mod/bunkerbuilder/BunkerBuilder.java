@@ -10,11 +10,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = BunkerBuilder.MODID, version = BunkerBuilder.VERSION)
@@ -96,12 +98,15 @@ public class BunkerBuilder
 		GameRegistry.registerBlock(texasbarrier, TexasBarrierItem.class, "TexasBarrier");
 		
 		
-	    GameRegistry.registerBlock(sandbag, SandBagItem.class, "sandbag");
+	    GameRegistry.registerBlock(sandbag, "sandbag");
 		//GameRegistry.registerBlock(sandbag, "sandbag");
 	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
 	    
 	    GameRegistry.registerBlock(hesco, HescoItem.class, "hesco");
 	    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
+	    
+	    SandBagItem sandbagitem = new SandBagItem();
+	    GameRegistry.registerItem(sandbagitem, "testitem");
 	    
 	    /********************************************************/
 		/********************************************************/
@@ -120,6 +125,7 @@ public class BunkerBuilder
         c4Block.setCreativeTab(this.tabCustom);
         dynamiteBlock.setCreativeTab(this.tabCustom);
         semtexBlock.setCreativeTab(this.tabCustom);
+        sandbagitem.setCreativeTab(this.tabCustom);
 
     }
     
@@ -132,5 +138,12 @@ public class BunkerBuilder
         }
         	
     };
+    
+    /* Register new ExtendedPlayer class for every player. */
+    @SubscribeEvent
+    public void onEntityConstructing(EntityConstructing event)
+    {
+    	
+    }
     
 }
