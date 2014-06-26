@@ -29,6 +29,7 @@ public class GameLevel {
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
 		Minecraft mc = Minecraft.getMinecraft();
+		mc.theWorld.setWorldTime(75000);
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(vec.xCoord > xmax)
 			mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
