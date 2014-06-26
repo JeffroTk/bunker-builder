@@ -105,6 +105,7 @@ public class BunkerBuilder
 	    
 	    /********************************************************/
 		/********************************************************/
+	    
         
         //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
@@ -123,7 +124,7 @@ public class BunkerBuilder
     }
     
     //Adds new tab with anvil as tab icon
-    public static CreativeTabs tabCustom = new CreativeTabs("OurNewCreativeTab") {
+    public static CreativeTabs tabCustom = new CreativeTabs("Resources") {
         @Override
         @SideOnly(Side.CLIENT)        
         public Item getTabIconItem() {
