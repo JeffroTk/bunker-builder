@@ -32,7 +32,8 @@ public class SandBagItem extends Item
 		list.add("Cost: 1");
 	}
 	
-	 public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet)
+	@Override
+	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet)
     {
 		//Prevents itemstack from decreasing when in creative mod
         if (!player.capabilities.isCreativeMode){
@@ -60,9 +61,11 @@ public class SandBagItem extends Item
                 }
                 //If the check was successful
                 if(canPlace){
-					world.setBlock(x,y,z, Blocks.dirt);
-					world.setBlock(x+1,y,z, Blocks.dirt);
-					world.setBlock(x+2,y,z, Blocks.dirt);
+                	world.setBlock(x, y, z, Blocks.dirt, dir, 0x02);
+                	for(int i = 0; i < gagShift.length; i++){
+                        shift = rotXZByDir(gagShift[i][0], y, gagShift[i][1], dir);
+                        world.setBlock(x + shift[0], y, z + shift[2], Blocks.dirt, dir, 0x02);
+                	}
 					return true;
                 }
         }
@@ -70,14 +73,14 @@ public class SandBagItem extends Item
     }
 	//This function rotates the relative coordinates accordingly to the given direction
     public int[] rotXZByDir(int x, int y, int z, int dir){
-            if (dir == 0){
-                    return new int[]{x, y, z};
-            }else if(dir == 1){
-                    return new int[]{-z, y, x};
-            }else if(dir == 2){
-                    return new int[]{-x, y, -z};
-            }else{
-                    return new int[]{z, y, -x};
-            }
+    	if (dir == 0){
+    		return new int[]{x, y, z};
+        }else if(dir == 1){
+            return new int[]{-z, y, x};
+        }else if(dir == 2){
+            return new int[]{-x, y, -z};
+        }else{
+            return new int[]{z, y, -x};
+        }
     }
 }
