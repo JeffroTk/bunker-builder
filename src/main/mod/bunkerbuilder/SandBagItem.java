@@ -2,12 +2,17 @@ package mod.bunkerbuilder;
 
 import java.util.List;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagDouble;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -35,12 +40,16 @@ public class SandBagItem extends Item
 	@Override
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet)
     {
+		//System.out.println(props.getMoney());
 		//Prevents itemstack from decreasing when in creative mod
         if (!player.capabilities.isCreativeMode){
             --item.stackSize;
         }
         //Prevents from making changes in inactive world
         if (!world.isRemote){
+	        	Double mon = GameValues.getMoney(player);
+	        	System.out.println("Money: " + mon);
+	        	GameValues.saveMoney(player, mon + 1);
                 //Increases y coordinate, so our block will be placed on top of the block you clicked, just as it should be
                 y++;
                 //Takes the player sight direction
