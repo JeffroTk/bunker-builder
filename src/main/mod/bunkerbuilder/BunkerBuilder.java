@@ -87,7 +87,7 @@ public class BunkerBuilder
 		
 		
 	    GameRegistry.registerBlock(sandbag, "sandbag");
-		//GameRegistry.registerBlock(sandbag, "sandbag");
+		
 	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
 	    
 	    GameRegistry.registerBlock(hesco, HescoItem.class, "hesco");
@@ -100,7 +100,7 @@ public class BunkerBuilder
 		/********************************************************/
 	    
         
-        //FMLCommonHandler.instance().bus().register(new SpawnRemoval());
+        FMLCommonHandler.instance().bus().register(new GameLevel());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
         

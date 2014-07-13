@@ -28,6 +28,7 @@ public class GameLevel {
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
+		
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.theWorld.setWorldTime(75000);
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);

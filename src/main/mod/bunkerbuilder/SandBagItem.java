@@ -80,6 +80,7 @@ public class SandBagItem extends Item
         }
         return false;
     }
+	
 	//This function rotates the relative coordinates accordingly to the given direction
     public int[] rotXZByDir(int x, int y, int z, int dir){
     	if (dir == 0){
