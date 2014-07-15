@@ -2,31 +2,20 @@ package mod.bunkerbuilder;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagDouble;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class SandBagItem extends Item
+public class SandbagItem extends ItemBlock
 {
-	/*public SandBagItem(Block block)
+	private Block sandbag;	
+	public SandbagItem(Block block)
 	{
 		super(block);
-	}*/
-	
-	public SandBagItem()
-	{
-		maxStackSize = 64;
-        setUnlocalizedName("genericItem");
+		sandbag = block;
 	}
 	
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean par4)
@@ -38,8 +27,10 @@ public class SandBagItem extends Item
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet)
+	public boolean placeBlockAt(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet, int metadata)
     {
+		
+		
 		//System.out.println(props.getMoney());
 		//Prevents itemstack from decreasing when in creative mod
         if (!player.capabilities.isCreativeMode){
@@ -50,8 +41,7 @@ public class SandBagItem extends Item
 	        	Double mon = GameValues.getMoney(player);
 	        	System.out.println("Money: " + mon);
 	        	GameValues.saveMoney(player, mon + 1);
-                //Increases y coordinate, so our block will be placed on top of the block you clicked, just as it should be
-                y++;
+                
                 //Takes the player sight direction
                 int dir = MathHelper.floor_double((double)((player.rotationYaw * 4F) / 360F) + 0.5D) & 3;
                 //This array will store information about the coordinates where we want to place our gags relatively to the primary block.
@@ -70,10 +60,10 @@ public class SandBagItem extends Item
                 }
                 //If the check was successful
                 if(canPlace){
-                	world.setBlock(x, y, z, Blocks.dirt, dir, 0x02);
+                	world.setBlock(x, y, z, sandbag, dir, 0x02);
                 	for(int i = 0; i < gagShift.length; i++){
                         shift = rotXZByDir(gagShift[i][0], y, gagShift[i][1], dir);
-                        world.setBlock(x + shift[0], y, z + shift[2], Blocks.dirt, dir, 0x02);
+                        world.setBlock(x + shift[0], y, z + shift[2], sandbag, dir, 0x02);
                 	}
 					return true;
                 }

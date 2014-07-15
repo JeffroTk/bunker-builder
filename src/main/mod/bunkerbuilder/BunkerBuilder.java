@@ -75,6 +75,7 @@ public class BunkerBuilder
         ItemStack sandbagstack = new ItemStack(new Sandbag());
         ItemStack sandstack = new ItemStack(Block.getBlockById(12));
         ItemStack clothstack = new ItemStack(Block.getBlockById(35));
+        GameRegistry.registerBlock(sandbag, SandbagItem.class, "Sandbag");
         
         Block hesco = new Hesco();
         ItemStack hescobastion = new ItemStack(new Hesco());
@@ -85,16 +86,13 @@ public class BunkerBuilder
 	    Block texasbarrier = new TexasBarrier();
 		GameRegistry.registerBlock(texasbarrier, TexasBarrierItem.class, "TexasBarrier");
 		
-		
-	    GameRegistry.registerBlock(sandbag, "sandbag");
-		
 	    GameRegistry.addShapelessRecipe(sandbagstack, sandstack, clothstack);
 	    
 	    GameRegistry.registerBlock(hesco, HescoItem.class, "hesco");
 	    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
 	    
-	    SandBagItem sandbagitem = new SandBagItem();
-	    GameRegistry.registerItem(sandbagitem, "testitem");
+//	    SandBagItem sandbagitem = new SandBagItem();
+//	    GameRegistry.registerItem(sandbagitem, "testitem");
 	    
 	    /********************************************************/
 		/********************************************************/
@@ -110,7 +108,7 @@ public class BunkerBuilder
         c4Block.setCreativeTab(this.tabCustom);
         dynamiteBlock.setCreativeTab(this.tabCustom);
         semtexBlock.setCreativeTab(this.tabCustom);
-        sandbagitem.setCreativeTab(this.tabCustom);
+//        sandbagitem.setCreativeTab(this.tabCustom);
 
     }
     

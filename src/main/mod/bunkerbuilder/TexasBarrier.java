@@ -17,8 +17,7 @@ public class TexasBarrier extends Block {
 		 setStepSound(Block.soundTypeStone);
 		 setBlockName("texasbarrier");
 		 setBlockTextureName("stone_slab_side");
-		 setCreativeTab(CreativeTabs.tabBlock);
-		
+		 setCreativeTab(CreativeTabs.tabBlock);		
 	}
 
 }
