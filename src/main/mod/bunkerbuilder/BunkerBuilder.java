@@ -3,6 +3,7 @@ package mod.bunkerbuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -101,6 +102,7 @@ public class BunkerBuilder
         FMLCommonHandler.instance().bus().register(new GameLevel());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
         MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
+        MinecraftForge.EVENT_BUS.register(new CustomGUI(Minecraft.getMinecraft()));
         
         sandbag.setCreativeTab(this.tabCustom);
         texasbarrier.setCreativeTab(this.tabCustom);
