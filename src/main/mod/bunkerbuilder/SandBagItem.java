@@ -19,7 +19,6 @@ public class SandBagItem extends ItemBlock
 		super(block);
 		sandbag = block;
 	}
-	
 	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean par4)
 	{
 		list.add("Cheap defensive structure");
@@ -28,7 +27,9 @@ public class SandBagItem extends ItemBlock
 		list.add("Cost: 1");
 	}
 	
-	@Override
+	
+
+	/*@Override
 	public boolean placeBlockAt(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet, int metadata)
     {
 		
@@ -88,7 +89,7 @@ public class SandBagItem extends ItemBlock
         }else{
             return new int[]{z, y, -x};
         }
-    }
+    } */
     
     /*
      * Checks if the player has enough money available to build the structure.
