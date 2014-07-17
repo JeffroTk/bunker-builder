@@ -1,6 +1,7 @@
 package mod.bunkerbuilder;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -9,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
  * @author Pierre
  *
  */
-public class Hesco extends Block {
+public class Hesco extends BlockFalling {
 
 	public Hesco () {
 		 super(Material.ground);

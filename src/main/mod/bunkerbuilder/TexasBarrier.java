@@ -1,13 +1,14 @@
 package mod.bunkerbuilder;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
 /*
  * These are slightly more expensive than some of the other blocks. They are pretty resistant to explosives.
  */
-public class TexasBarrier extends Block {
+public class TexasBarrier extends BlockFalling {
 
 	public TexasBarrier() {
 		

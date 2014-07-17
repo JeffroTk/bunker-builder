@@ -3,6 +3,7 @@ package mod.bunkerbuilder;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -38,9 +39,9 @@ public class TexasBarrierItem extends ItemBlock
         }
         //Prevents from making changes in inactive world
         if (!world.isRemote){
-	        	Double mon = GameValues.getMoney(player);
+	        	Double mon = GameValues.getMoney(Minecraft.getMinecraft().thePlayer);
 	        	System.out.println("Money: " + mon);
-	        	GameValues.saveMoney(player, mon + 1);
+	        	GameValues.saveMoney(Minecraft.getMinecraft().thePlayer, mon + 1);
                 
                 //Takes the player sight direction
                 int dir = MathHelper.floor_double((double)((player.rotationYaw * 4F) / 360F) + 0.5D) & 3;

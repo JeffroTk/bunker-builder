@@ -3,6 +3,7 @@ package mod.bunkerbuilder;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -12,6 +13,7 @@ import net.minecraft.world.World;
 public class SandBagItem extends ItemBlock
 {
 	private Block sandbag;	
+	private final double cost = 5;
 	public SandBagItem(Block block)
 	{
 		super(block);
@@ -30,7 +32,6 @@ public class SandBagItem extends ItemBlock
 	public boolean placeBlockAt(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet, int metadata)
     {
 		
-		
 		//System.out.println(props.getMoney());
 		//Prevents itemstack from decreasing when in creative mod
         if (!player.capabilities.isCreativeMode){
@@ -38,10 +39,8 @@ public class SandBagItem extends ItemBlock
         }
         //Prevents from making changes in inactive world
         if (!world.isRemote){
-	        	Double mon = GameValues.getMoney(player);
-	        	System.out.println("Money: " + mon);
-	        	GameValues.saveMoney(player, mon + 1);
-                
+        		if(!checkCosts())
+        			return false;
                 //Takes the player sight direction
                 int dir = MathHelper.floor_double((double)((player.rotationYaw * 4F) / 360F) + 0.5D) & 3;
                 //This array will store information about the coordinates where we want to place our gags relatively to the primary block.
@@ -89,5 +88,23 @@ public class SandBagItem extends ItemBlock
         }else{
             return new int[]{z, y, -x};
         }
+    }
+    
+    /*
+     * Checks if the player has enough money available to build the structure.
+     * If he doesn't, return false.
+     * If he does, substract it from his current money and return true
+     */
+    private boolean checkCosts()
+    {
+    	EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+    	Double money = GameValues.getMoney(Minecraft.getMinecraft().thePlayer);
+    	if(money >= cost)
+    	{
+    		GameValues.saveMoney(player, money - cost);
+    		return true;
+    	}
+    	System.out.println("Not enough money");
+    	return false;
     }
 }
