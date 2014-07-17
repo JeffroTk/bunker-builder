@@ -32,16 +32,40 @@ public class GameLevel {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.theWorld.setWorldTime(75000);
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
-		if(vec.xCoord > xmax)
+		if(checkXMax(vec.xCoord))
 			mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
-		if(vec.xCoord < xmin)
+		if(checkXMin(vec.xCoord))
 			mc.thePlayer.setPosition(xmin, vec.yCoord, vec.zCoord);
-		if(vec.zCoord > zmax)
+		if(checkZMax(vec.zCoord))
 			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
-		if(vec.zCoord < zmin)
+		if(checkZMin(vec.zCoord))
 			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
 			
 		//mc.thePlayer.setPosition(1,1,1);
+	}
+	
+	/* Checks whether the x coordinate is outside minimum range */
+	public boolean checkXMin(double x)
+	{
+		return x < xmin;
+	}
+	
+	/* Checks whether the x coordinate is outside maximum range */
+	public boolean checkXMax(double x)
+	{
+		return x > xmax;
+	}
+	
+	/* Checks whether the Z coordinate is outside maximum range */
+	public boolean checkZMax(double z)
+	{
+		return z > zmax;
+	}
+	
+	/* Checks whether the Z coordinate is outside minimum range */
+	public boolean checkZMin(double z)
+	{
+		return z < zmin;
 	}
 	
 }
