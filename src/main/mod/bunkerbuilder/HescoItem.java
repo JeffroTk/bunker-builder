@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class HescoItem extends ItemBlock
+public class HescoItem extends WallBlock
 {
 	public HescoItem(Block block)
 	{
