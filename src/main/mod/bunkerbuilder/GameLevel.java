@@ -4,12 +4,20 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class GameLevel {
 	private int level;
 	private int zmax, zmin, xmax, xmin; //restricting coordinates
+	
+	/* Initial money given to the player at beginning of each level */
+	private static final int levelOneMoney = 100;
+	private static final int levelTwoMoney = 150;
+	private static final int levelThreeMoney = 200;
 	
 	public GameLevel()
 	{
@@ -20,6 +28,32 @@ public class GameLevel {
 		xmin = 1667;
 	}
 	
+	/* Start the first level */
+	@SubscribeEvent
+	public void firstJoin(PlayerLoggedInEvent event)
+	{
+		/* Wait for the game to fully load before doing this*/
+    	try{
+    		Thread.sleep(1000);
+    		
+    		/* Set initial money value */
+    		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+    		GameValues.saveMoney(player, levelOneMoney);
+    		
+    		/* Spawn the object the player must defend */
+    		
+    		/* Start timer*/
+    	}catch(InterruptedException ie)
+    	{
+    		System.out.println("Unable to initialize game.");
+    	}
+    	
+	}
+	
+	public void gameTimer()
+	{
+		
+	}
 	
 	/*
 	 * Check the player coordinates every tick and restrict them to the current level
