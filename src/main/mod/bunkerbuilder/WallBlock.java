@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+/* Main multiblock class used for placing blocks and checking costs*/
 public class WallBlock extends ItemBlock{
 
 	private Block blockType;
@@ -28,7 +29,11 @@ public class WallBlock extends ItemBlock{
 			cost = 0;
 	}
 	
-	
+	/*
+	 * Places a multiblock structure in the form of a 3x1 based on the player's current facing direction
+	 * Blocks require a certain amount of money to be placed (which is substracted from total money once the block is placed)
+	 * 
+	 */
 	@Override
 	public boolean placeBlockAt(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffSet, int metadata)
     {
@@ -61,8 +66,10 @@ public class WallBlock extends ItemBlock{
                 //If the check was successful
                 if(canPlace && checkCosts()){
                 	int xcord,zcord;
-                	for(int j=0;j< 4;j++){
+                	/* Height of the block structure */
+                	for(int j=0;j< 1;j++){
                 		xcord = x; zcord = z;
+                		/* Width of the block structure*/
                 		for(int i = 0; i < gagShift.length; i++){
                             shift = rotXZByDir(gagShift[i][0], y, gagShift[i][1], dir);
                             world.setBlock(xcord, y, zcord, blockType, dir, 0x02);
@@ -95,8 +102,11 @@ public class WallBlock extends ItemBlock{
     private boolean checkCosts()
     {
     	System.out.println(cost);
+    	/* Retrieve player's current money */
     	EntityPlayer player = Minecraft.getMinecraft().thePlayer;
     	Double money = GameValues.getMoney(Minecraft.getMinecraft().thePlayer);
+    	
+    	/* Checks if player has enough money */
     	if(money >= cost)
     	{
     		GameValues.saveMoney(player, money - cost);
