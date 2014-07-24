@@ -74,7 +74,23 @@ public class GameLevel {
 			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
 		if(checkZMin(vec.zCoord))
 			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
-			
+		
+		if (mc.thePlayer.capabilities.isFlying){
+			mc.thePlayer.rotationPitch = 90;
+			mc.thePlayer.rotationYaw = 90;
+			mc.thePlayer.setPosition(vec.xCoord, 20, vec.zCoord);
+			//mc.thePlayer.eyeHeight = 20f;
+			//mc.thePlayer.capabilities.setFlySpeed(1.5f);
+			//mc.renderGlobal.
+			mc.gameSettings.mouseSensitivity = 0f;
+			mc.gameSettings.saturation = 150f;
+			//mc.gameSettings.isKeyDown(par0KeyBinding)				//useful?
+			//mc.objectMouseOver.hitVec = new Vec3(new Vec3Pool(0,0), 0, 20, 0);
+		}
+		else{
+			mc.gameSettings.mouseSensitivity = 0.55f;
+		}
+		//mc.thePlayer.setPosition(1,1,1);
 		//mc.thePlayer.setPosition(1,1,1);
 	}
 	
