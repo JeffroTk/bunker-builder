@@ -76,8 +76,8 @@ public class GameLevel {
 			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
 		
 		if (mc.thePlayer.capabilities.isFlying){
-			mc.thePlayer.rotationPitch = 90;
-			mc.thePlayer.rotationYaw = 90;
+			//mc.thePlayer.rotationPitch = 90;
+			//mc.thePlayer.rotationYaw = 90;
 			mc.thePlayer.setPosition(vec.xCoord, 20, vec.zCoord);
 			//mc.thePlayer.eyeHeight = 20f;
 			//mc.thePlayer.capabilities.setFlySpeed(1.5f);
