@@ -1,6 +1,10 @@
 package mod.bunkerbuilder;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -18,6 +22,11 @@ public class GameLevel {
 	private static final int levelOneMoney = 100;
 	private static final int levelTwoMoney = 150;
 	private static final int levelThreeMoney = 200;
+	
+	/* Time the player has to place blocks in seconds */
+	private static final int levelOneTime = 60;
+	private static final int levelTwoTime = 60;
+	private static final int levelThreeTime = 60;
 	
 	public GameLevel()
 	{
@@ -43,6 +52,8 @@ public class GameLevel {
     		/* Spawn the object the player must defend */
     		
     		/* Start timer*/
+    		level = 1;
+    		gameTimer(levelOneTime);
     	}catch(InterruptedException ie)
     	{
     		System.out.println("Unable to initialize game.");
@@ -50,9 +61,44 @@ public class GameLevel {
     	
 	}
 	
-	public void gameTimer()
+	/* Used as a simple timer for the gametime*/
+	class SimpleTimer extends TimerTask
 	{
+		double timeLeft;
 		
+		public SimpleTimer(double timeLeft)
+		{
+			super();
+			this.timeLeft = timeLeft;
+		}
+		
+		public void run()
+		{
+			gameTimer(timeLeft);
+		}
+	}
+	
+	/* If timeLeft is equal to 0 than timer has elapsed, else recursively call gameTimer with timeLeft-1 
+	 * Also updates the value that the HUD displays to the user
+	 * */
+	public void gameTimer(double timeLeft)
+	{
+		/* Update the GUI */
+		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+    	GameValues.setValue(Minecraft.getMinecraft().thePlayer, timeLeft, "timer");
+		if(timeLeft == 0)
+		{
+			/* Timer is finished*/
+			/* Call the explosives */
+			if(level == 1)
+			{
+				
+			}
+		}else{
+			/* Call game timer again after one second */
+			Timer timer = new Timer();
+			timer.schedule(new SimpleTimer(timeLeft-1), 1000);
+		}
 	}
 	
 	/*

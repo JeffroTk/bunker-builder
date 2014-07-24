@@ -8,24 +8,59 @@ import net.minecraft.nbt.NBTTagDouble;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
-
+/*
+ * Keeps track of important player variables throughout the game
+ * Notably: player money and game time
+ * 
+ */
 public class GameValues {
-	/*NBTTagCompound tag = player.getEntityData();
 	
-	NBTBase modeTag = tag.getTag("money");
-	if (modeTag != null) 
+	/* initializes the timer variable if necessary */
+	public static void initialize(EntityPlayer player, String s)
 	{
-		double money = ((NBTTagDouble) modeTag).func_150286_g();
-		System.out.println("Current int:" + money);
-		tag.setDouble("money", money + 1);
-	}else
-	{
-		System.out.println("Initialzing");
-		NBTTagDouble newtag = new NBTTagDouble(0);
-		tag.setTag("money", newtag);
-	}*/
+		NBTTagCompound tag = player.getEntityData();
+		NBTTagDouble val_tag = new NBTTagDouble(0);
+		tag.setTag(s, val_tag);
+	}
 	
-	public static void initialize(EntityPlayer player)
+	/* Stores the value val to the given string tagName*/
+	public static void setValue(EntityPlayer player, double val, String tagName)
+	{
+		NBTTagCompound tag = player.getEntityData();
+		
+		NBTBase modeTag = tag.getTag(tagName);
+		if (modeTag != null) 
+		{
+			tag.setDouble(tagName, val);
+		}
+		else
+		{
+			initialize(player, tagName);
+			modeTag = tag.getTag(tagName);
+			tag.setDouble(tagName, val);
+		}
+	}
+	
+	/* retrieves the double stored in the given string s*/
+	public static double getVal (EntityPlayer player, String s)
+	{
+		NBTTagCompound tag = player.getEntityData();
+		
+		NBTBase modeTag = tag.getTag(s);
+		if (modeTag != null) 
+		{
+			return ((NBTTagDouble) modeTag).func_150286_g();
+		}
+		else
+		{
+			initialize(player, s);
+			modeTag = tag.getTag(s);
+			return ((NBTTagDouble) modeTag).func_150286_g();
+		}
+
+	}
+	
+	public static void initializeMoney(EntityPlayer player)
 	{
 		NBTTagCompound tag = player.getEntityData();
 		NBTTagDouble moneytag = new NBTTagDouble(0);
@@ -43,7 +78,7 @@ public class GameValues {
 		}
 		else
 		{
-			initialize(player);
+			initializeMoney(player);
 			modeTag = tag.getTag("money");
 			tag.setDouble("money", money);
 		}
@@ -61,7 +96,7 @@ public class GameValues {
 		}
 		else
 		{
-			initialize(player);
+			initializeMoney(player);
 			modeTag = tag.getTag("money");
 			return ((NBTTagDouble) modeTag).func_150286_g();
 		}
