@@ -67,7 +67,7 @@ public class WallBlock extends ItemBlock{
                 if(canPlace && checkCosts()){
                 	int xcord,zcord;
                 	/* Height of the block structure */
-                	for(int j=0;j< 1;j++){
+                	for(int j=0;j< 4;j++){
                 		xcord = x; zcord = z;
                 		/* Width of the block structure*/
                 		for(int i = 0; i < 3; i++){

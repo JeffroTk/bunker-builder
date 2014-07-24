@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class TexasBarrierItem extends WallBlock
+public class TexasBarrierItem extends CornerBlock
 {
 	private Block texasbarrier;
 	public TexasBarrierItem(Block block)
