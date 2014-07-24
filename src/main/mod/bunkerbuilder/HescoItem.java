@@ -19,7 +19,7 @@ public class HescoItem extends WallBlock
 	{
 		list.add("Moderately priced, reliable defense");
 		list.add("");
-		list.add("Resistance: 9.0");
+		list.add("Resistance: 12.0");
 		list.add("Cost: 6");
 	}
 }

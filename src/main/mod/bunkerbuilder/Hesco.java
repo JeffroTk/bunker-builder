@@ -15,7 +15,7 @@ public class Hesco extends BlockFalling {
 	public Hesco () {
 		 super(Material.ground);
 		 setHardness(1.9F);
-    	 setResistance(9.0F);
+    	 setResistance(12.0F);
 		 setStepSound(Block.soundTypeGravel);
 		 setBlockName("hesco");
 		 setBlockTextureName("stone");

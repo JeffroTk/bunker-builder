@@ -14,7 +14,7 @@ public class TexasBarrier extends BlockFalling {
 		
 		 super(Material.rock);
 		 setHardness(2.5F);
-		 setResistance(12.0F);
+		 setResistance(16.0F);
 		 setStepSound(Block.soundTypeStone);
 		 setBlockName("texasbarrier");
 		 setBlockTextureName("stone_slab_side");

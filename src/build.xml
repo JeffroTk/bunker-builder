@@ -18,8 +18,8 @@
 	<property name="build.resources" value="build/resources"/>
     <property name="junit.output.dir" value="build/test-results"/>
 	<property name="report.test" value="build/reports/test"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
     <path id="JUnit.classpath">
         <pathelement location="lib/junit.jar"/>
         <pathelement location="lib/hamcrest-core-1.3.jar"/>

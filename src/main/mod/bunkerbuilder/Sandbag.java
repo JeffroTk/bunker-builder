@@ -15,7 +15,7 @@ public class Sandbag extends BlockFalling{
 		
 		 super(Material.sand);
 		 setHardness(1.5F);
-    	 setResistance(6.0F);
+    	 setResistance(8.0F);
 		 setStepSound(Block.soundTypeGravel);
 		 setBlockName("sandbag");
 		 setBlockTextureName("wool_colored_green");

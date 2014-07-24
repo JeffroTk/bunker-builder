@@ -23,7 +23,7 @@ public class SandBagItem extends WallBlock
 	{
 		list.add("Cheap defensive structure");
 		list.add("");
-		list.add("Resistance: 6.0");
+		list.add("Resistance: 8.0");
 		list.add("Cost: 1");
 	}
 	

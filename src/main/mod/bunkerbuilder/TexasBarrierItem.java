@@ -23,7 +23,7 @@ public class TexasBarrierItem extends WallBlock
 	{
 		list.add("Very strong defense measure");
 		list.add("");
-		list.add("Resistence: 12.0");
+		list.add("Resistence: 16.0");
 		list.add("Cost: 8");
 	}
 	
