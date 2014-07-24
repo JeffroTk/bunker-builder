@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 /*
  * These are slightly more expensive than some of the other blocks. They are pretty resistant to explosives.
  */
-public class TexasBarrier extends BlockFalling {
+public class TexasBarrier extends Block {
 
 	public TexasBarrier() {
 		

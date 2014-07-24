@@ -9,7 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
  * They are cheap and can be crafted easily. They offer a decent blast resistance
  * 
  */
-public class Sandbag extends BlockFalling{
+public class Sandbag extends Block{
 
 	public Sandbag () {
 		

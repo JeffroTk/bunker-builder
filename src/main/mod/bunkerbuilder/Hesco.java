@@ -10,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
  * @author Pierre
  *
  */
-public class Hesco extends BlockFalling {
+public class Hesco extends Block {
 
 	public Hesco () {
 		 super(Material.ground);

@@ -98,7 +98,8 @@ public class GameLevel {
 			/* Call the explosives */
 			if(level == 1)
 			{
-				MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
+				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, (xmin+xmax)/2, 10, (zmin+zmax)/2 );
+				//MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
 			}
 		}else{
 			/* Call game timer again after one second */

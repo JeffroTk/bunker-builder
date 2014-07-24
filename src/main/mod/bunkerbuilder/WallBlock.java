@@ -70,7 +70,7 @@ public class WallBlock extends ItemBlock{
                 	for(int j=0;j< 1;j++){
                 		xcord = x; zcord = z;
                 		/* Width of the block structure*/
-                		for(int i = 0; i < gagShift.length; i++){
+                		for(int i = 0; i < 3; i++){
                             shift = rotXZByDir(gagShift[i][0], y, gagShift[i][1], dir);
                             world.setBlock(xcord, y, zcord, blockType, dir, 0x02);
                             xcord += shift[0];
