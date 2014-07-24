@@ -84,6 +84,8 @@ public class CornerBlock extends ItemBlock{
 	                	}
 	                	x=xByDir(x,dir);
 	                	z=zByDir(z,dir);
+	                	System.out.println("X: "+x);
+	                	System.out.println("Z: "+z);
                 	}	
 	                
 					return true;
@@ -94,14 +96,14 @@ public class CornerBlock extends ItemBlock{
 	
 	public int xByDir(int x, int dir){
 		if(dir==0||dir==1)
-			return ++x;
-		return --x;
+			return --x;
+		return ++x;
 	}
 	
 	public int zByDir(int z, int dir){
-		if(dir==0||dir==2)
-			return ++z;
-		return --z;
+		if(dir==1||dir==2)
+			return --z;
+		return ++z;
 	}
 	
 	//This function rotates the relative coordinates accordingly to the given direction
