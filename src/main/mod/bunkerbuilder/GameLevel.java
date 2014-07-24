@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,7 +39,9 @@ public class GameLevel {
 		xmin = 1667;
 	}
 	
-	/* Start the first level */
+	/* Start the first level when the player joins the game
+	 * 
+	 * */
 	@SubscribeEvent
 	public void firstJoin(PlayerLoggedInEvent event)
 	{
@@ -49,8 +52,6 @@ public class GameLevel {
     		/* Set initial money value */
     		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
     		GameValues.saveMoney(player, levelOneMoney);
-    		
-    		/* Spawn the object the player must defend */
     		
     		/* Start timer*/
     		level = 1;
@@ -87,6 +88,10 @@ public class GameLevel {
 		/* Update the GUI */
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
     	GameValues.setValue(Minecraft.getMinecraft().thePlayer, timeLeft, "timer");
+    	
+    	/* Spawn defense block */
+    	if(timeLeft == 59)
+    		spawnLifeBlock((xmin+xmax)/2, 4, (zmin+zmax)/2);
 		if(timeLeft == 0)
 		{
 			/* Timer is finished*/
@@ -100,6 +105,18 @@ public class GameLevel {
 			Timer timer = new Timer();
 			timer.schedule(new SimpleTimer(timeLeft-1), 1000);
 		}
+	}
+	
+	/*
+	 * Creates the block that the player must defend in the game
+	 * Takes coordinates to place the block
+	 * 
+	 */
+	public void spawnLifeBlock(int x, int y, int z)
+	{
+		World world = Minecraft.getMinecraft().theWorld;
+		world.setBlock(x, y, z, Blocks.dirt, 0, 0x02);
+		System.out.println("x: " + x +  "Y: " + y + "Z: " + z);
 	}
 	
 	/*
