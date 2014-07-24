@@ -27,6 +27,6 @@ public class CustomGUI extends Gui {
 			return;
 		FontRenderer fontRenderer = this.mc.fontRenderer;
 		this.drawString(fontRenderer, "Money: "+GameValues.getMoney((EntityPlayer)mc.thePlayer), 1, 1, 0xffffffff);
-		this.drawString(fontRenderer, "Time Left: "+(int)(GameValues.getVal((EntityPlayer)mc.thePlayer, "timer")), 100, 1, 0xffffffff);
+		this.drawString(fontRenderer, "Time Until Explosives: "+(int)(GameValues.getVal((EntityPlayer)mc.thePlayer, "timer"))+" seconds", 100, 1, 0xffffffff);
 	}
 }

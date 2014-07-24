@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -92,7 +93,7 @@ public class GameLevel {
 			/* Call the explosives */
 			if(level == 1)
 			{
-				
+				MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
 			}
 		}else{
 			/* Call game timer again after one second */

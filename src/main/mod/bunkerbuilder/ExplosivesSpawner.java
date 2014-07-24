@@ -50,7 +50,7 @@ public class ExplosivesSpawner {
 				  //world.setBlock(x,y,z, (Block)c4);
 				  /* Add code inside the onBlockAdded method to set this tnt to primed.*/
 			  }
-			}, 2*10*1000, 2*10*1000); // repeating timer for every 20 seconds, will be changed later when levels are added
+			}, 2*0*1000, 2*10*1000); // repeating timer for every 20 seconds, will be changed later when levels are added
 	}
 	
 	/*

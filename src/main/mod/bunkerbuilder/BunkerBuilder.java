@@ -101,7 +101,6 @@ public class BunkerBuilder
         
         FMLCommonHandler.instance().bus().register(new GameLevel());
         MinecraftForge.EVENT_BUS.register(new SpawnRemoval());
-        MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
         MinecraftForge.EVENT_BUS.register(new CustomGUI(Minecraft.getMinecraft()));
         
         sandbag.setCreativeTab(this.tabCustom);
