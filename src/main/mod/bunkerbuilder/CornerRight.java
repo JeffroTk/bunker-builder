@@ -11,12 +11,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 /* Main multiblock class used for placing blocks and checking costs*/
-public class CornerBlock extends ItemBlock{
+public class CornerRight extends ItemBlock{
 
 	private Block blockType;
 	private double cost;
 	
-	public CornerBlock(Block block) {
+	public CornerRight(Block block) {
 		super(block);
 		blockType = block;
 		if(block instanceof Sandbag)
@@ -76,8 +76,8 @@ public class CornerBlock extends ItemBlock{
 	                		for(int i = 0; i < 2; i++){
 	                            shift = rotXZByDir(gagShift[i][0], y, gagShift[i][1], dir);
 	                            world.setBlock(xcord, ycord, zcord, blockType, dir, 0x02);
-	                            xcord -= shift[0];
-	                            zcord -= shift[2];
+	                            xcord += shift[0];
+	                            zcord += shift[2];
 	                    	}             		
 	                		ycord++;
 	                		
@@ -94,16 +94,14 @@ public class CornerBlock extends ItemBlock{
         return false;
     }
 	
-	
 	public int xByDir(int x, int dir){
-		if(dir==2||dir==1)
+		if(dir==0||dir==1)
 			return --x;
 		return ++x;
 	}
-	//At dir 1, z++
-	//At dir 0, z++
+	
 	public int zByDir(int z, int dir){
-		if(dir==3||dir==2)
+		if(dir==1||dir==2)
 			return --z;
 		return ++z;
 	}

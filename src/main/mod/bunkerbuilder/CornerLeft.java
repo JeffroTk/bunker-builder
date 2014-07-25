@@ -11,12 +11,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 /* Main multiblock class used for placing blocks and checking costs*/
-public class CornerBlock extends ItemBlock{
+public class CornerLeft extends ItemBlock{
 
 	private Block blockType;
 	private double cost;
 	
-	public CornerBlock(Block block) {
+	public CornerLeft(Block block) {
 		super(block);
 		blockType = block;
 		if(block instanceof Sandbag)
