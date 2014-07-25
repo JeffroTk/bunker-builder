@@ -55,4 +55,25 @@ public class GameOverScreen extends GuiGameOver
             guibutton = (GuiButton)iterator.next();
         }
     }
+
+    /**
+     * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
+     */
+    protected void keyTyped(char par1, int par2) {}
+
+    protected void actionPerformed(GuiButton p_146284_1_)
+    {
+        switch (p_146284_1_.id)
+        {
+            case 0:
+                this.mc.thePlayer.respawnPlayer();
+                this.mc.displayGuiScreen((GuiScreen)null);
+                break;
+            case 1:
+                GuiYesNo guiyesno = new GuiYesNo(this, I18n.format("deathScreen.quit.confirm", new Object[0]), "", 
+                		I18n.format("deathScreen.titleScreen", new Object[0]), I18n.format("deathScreen.respawn", new Object[0]), 0);
+                this.mc.displayGuiScreen(guiyesno);
+                guiyesno.func_146350_a(20);
+        }
+    }
 }
