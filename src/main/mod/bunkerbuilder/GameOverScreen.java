@@ -6,7 +6,7 @@ import java.util.Iterator;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
-import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.gui.*;
 
 
