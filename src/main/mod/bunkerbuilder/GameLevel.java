@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.Vec3;
+import net.minecraft.util.Vec3Pool;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -18,7 +19,10 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class GameLevel {
 	private int level;
-	private int zmax, zmin, xmax, xmin; //restricting coordinates
+	private static final int xmax = 1694, xmin = 1667; //restricting coordinates
+	private static final int zmax = 148, zmin = 117;//restricting coordinates
+	private static final int zmax2 = -32, zmin2 = -63; //restricting coordinates
+	private static final int zmax3 = -200, zmin3 = -240; //restricting coordinates
 	
 	/* Initial money given to the player at beginning of each level */
 	private static final int levelOneMoney = 100;
@@ -33,10 +37,7 @@ public class GameLevel {
 	public GameLevel()
 	{
 		level = 1;
-		zmax = 148;
-		zmin = 117;
-		xmax = 1694;
-		xmin = 1667;
+		
 	}
 	
 	/* Start the first level when the player joins the game
@@ -55,7 +56,7 @@ public class GameLevel {
     		
     		/* Start timer*/
     		level = 1;
-    		gameTimer(levelOneTime);
+    		//gameTimer(levelOneTime);
     	}catch(InterruptedException ie)
     	{
     		System.out.println("Unable to initialize game.");
@@ -76,7 +77,7 @@ public class GameLevel {
 		
 		public void run()
 		{
-			gameTimer(timeLeft);
+			//gameTimer(timeLeft);
 		}
 	}
 	
@@ -132,28 +133,32 @@ public class GameLevel {
 		mc.theWorld.setWorldTime(75000);
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(checkXMax(vec.xCoord))
-			mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
+			//mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
 		if(checkXMin(vec.xCoord))
-			mc.thePlayer.setPosition(xmin, vec.yCoord, vec.zCoord);
+			//mc.thePlayer.setPosition(xmin, vec.yCoord, vec.zCoord);
 		if(checkZMax(vec.zCoord))
-			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
+			//mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
 		if(checkZMin(vec.zCoord))
-			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
+			//mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
 		
 		if (mc.thePlayer.capabilities.isFlying){
-			//mc.thePlayer.rotationPitch = 90;
-			//mc.thePlayer.rotationYaw = 90;
-			mc.thePlayer.setPosition(vec.xCoord, 20, vec.zCoord);
-			//mc.thePlayer.eyeHeight = 20f;
-			//mc.thePlayer.capabilities.setFlySpeed(1.5f);
+			mc.thePlayer.rotationPitch = 90;
+			mc.thePlayer.rotationYaw = 90;
+			mc.thePlayer.setPosition(vec.xCoord, 11, vec.zCoord);
+			//mc.thePlayer.eyeHeight = 15f;
+			mc.thePlayer.capabilities.setFlySpeed(0.1f);
 			//mc.renderGlobal.
 			mc.gameSettings.mouseSensitivity = 0f;
 			mc.gameSettings.saturation = 150f;
 			//mc.gameSettings.isKeyDown(par0KeyBinding)				//useful?
-			//mc.objectMouseOver.hitVec = new Vec3(new Vec3Pool(0,0), 0, 20, 0);
+			//mc.theWorld. = (Vec3) new MyVec3(new Vec3Pool(20,20), 50, 50, 50);
+			//tested; 71089_bv, 70135_k, 71082_cx, 71085_br, 71097_bo
+			mc.thePlayer.field_71097_bO = 50f;
+			mc.thePlayer.dimension = -1;
 		}
 		else{
 			mc.gameSettings.mouseSensitivity = 0.55f;
+			//mc.playerController.
 		}
 		//mc.thePlayer.setPosition(1,1,1);
 		//mc.thePlayer.setPosition(1,1,1);
