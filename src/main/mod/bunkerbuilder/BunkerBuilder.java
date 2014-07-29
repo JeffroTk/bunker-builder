@@ -92,6 +92,8 @@ public class BunkerBuilder
 	    GameRegistry.registerBlock(hesco, HescoItem.class, "hesco");
 	    GameRegistry.addShapelessRecipe(hescobastion, steelgrid, gravelstack);
 	    
+	    Block lifeblock = new LifeBlock();
+	    GameRegistry.registerBlock(lifeblock, "lifeblock");
 //	    SandBagItem sandbagitem = new SandBagItem();
 //	    GameRegistry.registerItem(sandbagitem, "testitem");
 	    

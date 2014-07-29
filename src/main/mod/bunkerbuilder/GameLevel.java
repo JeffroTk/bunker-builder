@@ -3,6 +3,8 @@ package mod.bunkerbuilder;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,13 +18,17 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.registry.GameData;
 
 public class GameLevel {
 	private int level;
-	private static final int xmax = 1694, xmin = 1667; //restricting coordinates
-	private static final int zmax = 148, zmin = 117;//restricting coordinates
+	private static final int xmax1 = 1694, xmin1 = 1667; //restricting coordinates
+	private static final int zmax1 = 148, zmin1 = 117;//restricting coordinates
 	private static final int zmax2 = -32, zmin2 = -63; //restricting coordinates
 	private static final int zmax3 = -200, zmin3 = -240; //restricting coordinates
+	
+	private int xmin, xmax, zmax, zmin;
+	private Block lifeBlock;
 	
 	/* Initial money given to the player at beginning of each level */
 	private static final int levelOneMoney = 100;
@@ -37,6 +43,45 @@ public class GameLevel {
 	public GameLevel()
 	{
 		level = 1;
+		xmin = xmin1;
+		xmax = xmax1;
+		zmin = zmin1;
+		zmax = zmax1;
+		
+	}
+	
+	/* Checks if the game was lost by checking the life block is still alive 
+	 * Takes the coordinates of the lifeblock as parameter 
+	 * Returns true if game was lost
+	 * */
+	public boolean checkLoss(World world, int x, int y, int z)
+	{
+		Block block = world.getBlock(x,y,z);
+		if(block.getMaterial() == Material.air)
+			return true;
+		return false;
+	}
+	
+	/* Sets the necessary values to increase to the next
+	 * level of the game.
+	 * - Player coordinates
+	 * - level variable
+	 * - player money
+	 * 
+	 * */
+	public void nextLevel(int level)
+	{
+		/* update the coordinate boundary */
+		if(level == 2)
+		{
+			zmin = zmin2;
+			zmax = zmax2;
+		}
+		this.level = level + 1;
+		
+		if(level == 2)
+			GameValues.saveMoney(Minecraft.getMinecraft().thePlayer, levelTwoMoney);
+		
 		
 	}
 	
@@ -56,7 +101,7 @@ public class GameLevel {
     		
     		/* Start timer*/
     		level = 1;
-    		//gameTimer(levelOneTime);
+    		gameTimer(levelOneTime);
     	}catch(InterruptedException ie)
     	{
     		System.out.println("Unable to initialize game.");
@@ -77,7 +122,7 @@ public class GameLevel {
 		
 		public void run()
 		{
-			//gameTimer(timeLeft);
+			gameTimer(timeLeft);
 		}
 	}
 	
@@ -88,11 +133,14 @@ public class GameLevel {
 	{
 		/* Update the GUI */
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-    	GameValues.setValue(Minecraft.getMinecraft().thePlayer, timeLeft, "timer");
+		if(timeLeft >= 0) //don't update negative values
+			GameValues.setValue(Minecraft.getMinecraft().thePlayer, timeLeft, "timer");
     	
     	/* Spawn defense block */
-    	if(timeLeft == 59)
-    		spawnLifeBlock((xmin+xmax)/2, 4, (zmin+zmax)/2);
+    	if(timeLeft == 59){
+    		//LifeBlock life = new LifeBlock();
+    		lifeBlock = spawnLifeBlock((xmin+xmax)/2, 4, (zmin+zmax)/2);
+    	}
 		if(timeLeft == 0)
 		{
 			/* Timer is finished*/
@@ -100,13 +148,23 @@ public class GameLevel {
 			if(level == 1)
 			{
 				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, (xmin+xmax)/2, 10, (zmin+zmax)/2 );
-				//MinecraftForge.EVENT_BUS.register(new ExplosivesSpawner());
 			}
-		}else{
-			/* Call game timer again after one second */
-			Timer timer = new Timer();
-			timer.schedule(new SimpleTimer(timeLeft-1), 1000);
+		}else if(timeLeft == -5)
+		{
+			if(checkLoss(Minecraft.getMinecraft().theWorld, (xmin+xmax)/2, 4, (zmin+zmax)/2))
+			{
+				System.out.println("Game loss");
+			}else
+			{
+				System.out.println("Next level");
+				nextLevel(level + 1);
+				timeLeft = 60;
+			}
 		}
+		/* Call game timer again after one second */
+		Timer timer = new Timer();
+		timer.schedule(new SimpleTimer(timeLeft-1), 1000);
+		
 	}
 	
 	/*
@@ -114,11 +172,12 @@ public class GameLevel {
 	 * Takes coordinates to place the block
 	 * 
 	 */
-	public void spawnLifeBlock(int x, int y, int z)
+	public Block spawnLifeBlock(int x, int y, int z)
 	{
 		World world = Minecraft.getMinecraft().theWorld;
-		world.setBlock(x, y, z, Blocks.dirt, 0, 0x02);
-		System.out.println("x: " + x +  "Y: " + y + "Z: " + z);
+		LifeBlock block = new LifeBlock();
+		world.setBlock(x, y, z, block, 0, 0x02);
+		return world.getBlock(x,y,z);
 	}
 	
 	/*
@@ -133,13 +192,13 @@ public class GameLevel {
 		mc.theWorld.setWorldTime(75000);
 		Vec3 vec = mc.thePlayer.getPosition(1.0F);
 		if(checkXMax(vec.xCoord))
-			//mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
+			mc.thePlayer.setPosition(xmax, vec.yCoord, vec.zCoord);
 		if(checkXMin(vec.xCoord))
-			//mc.thePlayer.setPosition(xmin, vec.yCoord, vec.zCoord);
+			mc.thePlayer.setPosition(xmin, vec.yCoord, vec.zCoord);
 		if(checkZMax(vec.zCoord))
-			//mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
+			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmax);
 		if(checkZMin(vec.zCoord))
-			//mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
+			mc.thePlayer.setPosition(vec.xCoord, vec.yCoord, zmin);
 		
 		if (mc.thePlayer.capabilities.isFlying){
 			mc.thePlayer.rotationPitch = 90;
