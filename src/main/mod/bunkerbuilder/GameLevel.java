@@ -69,18 +69,18 @@ public class GameLevel {
 	 * - player money
 	 * 
 	 * */
-	public void nextLevel(int level)
+	public void nextLevel()
 	{
+		this.level = this.level + 1;
+		
 		/* update the coordinate boundary */
 		if(level == 2)
 		{
 			zmin = zmin2;
 			zmax = zmax2;
-		}
-		this.level = level + 1;
-		
-		if(level == 2)
 			GameValues.saveMoney(Minecraft.getMinecraft().thePlayer, levelTwoMoney);
+		}
+		
 		
 		
 	}
@@ -148,8 +148,14 @@ public class GameLevel {
 			if(level == 1)
 			{
 				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, (xmin+xmax)/2, 10, (zmin+zmax)/2 );
+			}else if(level == 2)
+			{
+				System.out.println("Spawning level 2 explosives");
+				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, ((xmin+xmax)/2)+2, 10, (zmin+zmax)/2 );
+				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, (xmin+xmax)/2, 10, (zmin+zmax)/2 );
+				ExplosivesSpawner.spawnExplosive(Minecraft.getMinecraft().theWorld, 0, ((xmin+xmax)/2)+1, 10, ((zmin+zmax)/2)+1 );
 			}
-		}else if(timeLeft == -5)
+		}else if(timeLeft == -7)
 		{
 			if(checkLoss(Minecraft.getMinecraft().theWorld, (xmin+xmax)/2, 4, (zmin+zmax)/2))
 			{
@@ -157,7 +163,7 @@ public class GameLevel {
 			}else
 			{
 				System.out.println("Next level");
-				nextLevel(level + 1);
+				nextLevel();
 				timeLeft = 60;
 			}
 		}
@@ -175,8 +181,7 @@ public class GameLevel {
 	public Block spawnLifeBlock(int x, int y, int z)
 	{
 		World world = Minecraft.getMinecraft().theWorld;
-		LifeBlock block = new LifeBlock();
-		world.setBlock(x, y, z, block, 0, 0x02);
+		world.setBlock(x, y, z, Blocks.dirt, 0, 0x02);
 		return world.getBlock(x,y,z);
 	}
 	
