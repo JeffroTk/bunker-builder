@@ -21,6 +21,10 @@ public class CustomGUI extends Gui {
 		this.mc=mc;
 	}
 	
+	/**
+	 * This method is what actually writes the text onto the screen
+	 * 
+	 */
 	@SubscribeEvent
 	public void onRenderMoney(RenderGameOverlayEvent event){
 		if (event.isCancelable())

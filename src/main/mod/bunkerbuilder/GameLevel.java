@@ -182,5 +182,16 @@ public class GameLevel {
 	{
 		return z < zmin;
 	}
-	
+	public boolean checkLevelOneMoney(double m) 
+	{
+		return m == levelOneMoney;
+	}
+	public boolean checkLevelTwoMoney(double m) 
+	{
+		return m == levelTwoMoney;
+	}
+	public boolean checkLevelThreeMoney(double m) 
+	{
+		return m == levelThreeMoney;
+	}
 }

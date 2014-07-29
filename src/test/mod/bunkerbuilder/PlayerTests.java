@@ -22,5 +22,17 @@ public class PlayerTests {
 		assertTrue("120 should be within minimum z requirement", test.checkZMax(120) == false); 
 		assertTrue("200 should be outside allowed boundaries", test.checkZMax(200)); //200 should be outside allowed boundaries
 	}
+	
+	/* Testing the money given in each level */
+	@Test
+	public void moneyTest() {
+		GameLevel test = new GameLevel();
+		assertTrue("Level one money should equal 100", test.checkLevelOneMoney(100)); //100 should be the levelOneMoney amount
+		assertTrue("Level two money should equal 150", test.checkLevelTwoMoney(150)); //150 should be the levelTwoMoney amount
+		assertTrue("Level three money should equal 200", test.checkLevelThreeMoney(200)); //200 should be the levelThreeMoney amount
+
+	}
+	
+
 
 }

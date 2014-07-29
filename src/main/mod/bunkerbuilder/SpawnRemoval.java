@@ -1,7 +1,6 @@
 package mod.bunkerbuilder;
 
 /*
- * Author: Craig
  * Prevents hostile/friendly mobs from spawning into games
  */
 
@@ -26,10 +25,6 @@ public class SpawnRemoval {
 	@SubscribeEvent
 	public void CheckSpawn(LivingSpawnEvent.CheckSpawn event)
 	{
-		//if(event.entity instanceof EntitySkeleton || event.entity instanceof EntityZombie || event.entity instanceof EntitySpider) {
-	    //	event.setCanceled(true);
-	    //}
-		//System.out.println("denied spawn");
 		event.setResult(Result.DENY);
 	}
 }
